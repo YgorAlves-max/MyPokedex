@@ -1,0 +1,32 @@
+@import "../../../config-scss/rem-calc.scss";
+
+//rem-calc()
+
+//middle
+
+:host{
+  .container {
+  width: 100%;
+  height: 100vh;
+
+
+  background-color: gray;
+
+  .row {
+    padding: rem-calc(20);
+
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+    gap: rem-calc(10);
+  }
+  .card {
+    width: rem-calc(300);
+    height: 30vh;
+
+    background-color: red;
+    border-radius: rem-calc(10);
+  }
+}
+}

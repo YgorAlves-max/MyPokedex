@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="row">
+    <div class="card"*ngFor="let poke of getAllPokemons">
+      <p >{{ poke.name }}</p>
+      <img [src]="poke.status?.sprites?.front_default" alt="" srcset="">
+    </div>
+  </div>
+</div>

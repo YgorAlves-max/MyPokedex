@@ -1,0 +1,17 @@
+@import "../../../config-scss/rem-calc.scss";
+
+//rem-calc()
+
+//Navbar
+:host{
+  .Header-container{
+  background-color: black;
+  color: white;
+}
+.navbar-header {
+  padding: rem-calc(18);
+  padding-left:rem-calc(30); ;
+  display: flex;
+  gap: rem-calc(10);
+}
+}
