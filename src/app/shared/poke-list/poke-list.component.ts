@@ -1,5 +1,4 @@
-
-
+import { forkJoin, map } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 
 import { PokeapiService } from 'src/app/service/pokeapi.service';
@@ -7,33 +6,37 @@ import { PokeapiService } from 'src/app/service/pokeapi.service';
 @Component({
   selector: 'app-poke-list',
   templateUrl: './poke-list.component.html',
-  styleUrls: ['./poke-list.component.scss']
+  styleUrls: ['./poke-list.component.scss'],
 })
 export class PokeListComponent implements OnInit {
-
-
-  public getAllPokemons:any;
   private setAllPokemons: any;
-
-  public getAllAbilities: any;
+  public getAllPokemons: any;
 
   public apiError: boolean = false;
-  constructor(
-    private pokeapiService: PokeapiService
+  status: any;
 
-  ) { }
+  constructor(private pokeApiService: PokeapiService) {}
 
   ngOnInit(): void {
-    this.pokeapiService.apiListAllPokemons.subscribe(res =>{
-      this.getAllPokemons = res.results;
-      this.setAllPokemons = this.getAllPokemons
-      console.log("reponse", res)
-    });
+    this.pokeApiService.apiListAllPokemons.subscribe(
+      (res) => {
+        this.setAllPokemons = res.results;
+        this.getAllPokemons = this.setAllPokemons;
+        console.log(this.getAllPokemons);
+
+      },
+      (error) => {
+        this.apiError = true;
+      }
+    );
   }
 
-  // getPokeImg(url: string) {
-  //   return http
-  // }
+  public getSearch(value: string) {
+    const filter = this.setAllPokemons.filter((res: any) => {
+      return !res.name.indexOf(value.toLowerCase());
+    });
+    this.getAllPokemons = filter;
+  }
 
 
 }

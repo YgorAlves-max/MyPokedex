@@ -1,17 +1,11 @@
-@import "../../../config-scss/rem-calc.scss";
+@import "src/config-scss/rem-calc.scss";
 
-//rem-calc()
+:host {
+  header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-//Navbar
-:host{
-  .Header-container{
-  background-color: black;
-  color: white;
-}
-.navbar-header {
-  padding: rem-calc(18);
-  padding-left:rem-calc(30); ;
-  display: flex;
-  gap: rem-calc(10);
-}
+    padding: rem-calc(40) 0;
+  }
 }

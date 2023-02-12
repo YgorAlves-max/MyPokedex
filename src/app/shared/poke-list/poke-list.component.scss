@@ -1,32 +1,111 @@
-@import "../../../config-scss/rem-calc.scss";
+@import "src/config-scss/rem-calc.scss";
 
-//rem-calc()
+$padding: rem-calc(20);
 
-//middle
-
-:host{
-  .container {
+:host {
   width: 100%;
-  height: 100vh;
 
-
-  background-color: gray;
-
-  .row {
-    padding: rem-calc(20);
-
+  .listagem {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     flex-wrap: wrap;
 
-    gap: rem-calc(10);
-  }
-  .card {
-    width: rem-calc(300);
-    height: 30vh;
+    padding: $padding 0;
 
-    background-color: red;
-    border-radius: rem-calc(10);
+    .pokemon {
+      position: relative;
+      display: flex;
+      background: var(--branco);
+
+      width: calc(49% - 2.5rem);
+      height: rem-calc(157 - 40);
+
+      margin-bottom: rem-calc(10);
+      padding: $padding;
+
+      border-radius: rem-calc(10);
+
+      text-decoration: none;
+      color: var(--primary-color);
+
+      &__status {
+        h2 {
+          font-size: rem-calc(22);
+          font-style: italic;
+          font-weight: 700;
+          text-transform: capitalize;
+
+          margin-bottom: rem-calc(10);
+        }
+
+        ul {
+          display: flex;
+          flex-direction: column;
+
+          li {
+            background: var(--cinza);
+            font-size: rem-calc(10);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            border-radius: rem-calc(50);
+
+            width: rem-calc(60);
+            margin-bottom: rem-calc(5);
+          }
+        }
+      }
+
+      &__image {
+        position: absolute;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        height: rem-calc(90);
+        width: rem-calc(110);
+
+        right: $padding;
+        bottom: $padding;
+
+        img {
+          width: rem-calc(60);
+        }
+      }
+    }
+    .box {
+      padding: 10px;
+      font-size: 13px !important;
+      color: white;
+      &.normal {
+        background-color: darkgrey !important;
+      }
+      &.grass {
+        background-color: #9acd32 !important;
+      }
+      &.poison {
+        background-color: #7ba05b !important;
+      }
+      &.water {
+        background-color: #00bfff !important;
+      }
+      &.flying {
+        background-color: #87cefa !important;
+      }
+      &.bug {
+        background-color: #ff8f79 !important;
+      }
+      &.fire {
+        background-color: #ff670f !important;
+      }
+    }
+    @media (max-width: 400px) {
+      a {
+        width: 100% !important;
+      }
+    }
   }
-}
 }
